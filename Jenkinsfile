@@ -1,4 +1,5 @@
 pipeline {
+ agent any
     stages {
         stage('Test') {
             steps {
@@ -8,6 +9,7 @@ pipeline {
     }
     post {
         always {
+            junit 'build/reports/**/*.xml'
             echo 'This will always run'
         }
         success {
