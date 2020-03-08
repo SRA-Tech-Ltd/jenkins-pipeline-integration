@@ -14,7 +14,7 @@ pipeline {
     }
     post {
         always {
-            junit 'target/site/surefire-report.html'
+            junit './target/site/surefire-report.html'
             echo 'This will always run'
         }
         success {
