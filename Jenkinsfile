@@ -8,13 +8,13 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'mvn clean test'
+                sh 'mvn clean test surefire-report:report'
             }
         }
     }
     post {
         always {
-            junit 'build/reports/**/*.xml'
+            junit 'target/site/surefire-report.html'
             echo 'This will always run'
         }
         success {
